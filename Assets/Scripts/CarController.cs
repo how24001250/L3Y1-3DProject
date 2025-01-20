@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering;
 
 public class CarController : MonoBehaviour
 {
@@ -15,7 +17,7 @@ public class CarController : MonoBehaviour
     [Range(0,60f)] public float jumpHeight = 30f;
     [Range(0,20f)] public float gravityForce = 10f;
     [Range(0,5f)] public float dragOnGround = 3f;
-    private float speedInput, turnInput;
+    [SerializeField] float speedInput, turnInput;
 
     [Header("Ground Check")]
     public LayerMask whatisGround;
@@ -53,7 +55,6 @@ public class CarController : MonoBehaviour
 
     void Update()
     {
-
         speedInput = 0f;
         if (Input.GetAxis("Vertical") > 0) 
         {
