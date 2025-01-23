@@ -80,6 +80,7 @@ public class CarController : MonoBehaviour
         leftFrontWheel.localRotation = Quaternion.Euler(leftFrontWheel.localRotation.eulerAngles.x, (turnInput * maxWheelTurn) - 180, leftFrontWheel.localRotation.eulerAngles.z);
         rightFrontWheel.localRotation = Quaternion.Euler(rightFrontWheel.localRotation.eulerAngles.x, turnInput * maxWheelTurn, rightFrontWheel.localRotation.eulerAngles.z);
         transform.position = theRB.transform.position;
+        
     }
 
     private void FixedUpdate()
@@ -125,4 +126,13 @@ public class CarController : MonoBehaviour
 
     }
 
+    private void OnCollisionEnter(Collision other) {
+        Debug.Log("Collision Detected");
+
+        if(other.gameObject.tag == "JumpActive") {
+            jumpHeight += 30;
+            Debug.Log("JumpActivated");
+        }
+    }
+    
 }
