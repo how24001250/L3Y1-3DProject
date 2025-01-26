@@ -125,14 +125,4 @@ public class CarController : MonoBehaviour
         }
 
     }
-
-    private void OnCollisionEnter(Collision other) {
-        Debug.Log("Collision Detected");
-
-        if(other.gameObject.tag == "JumpActive") {
-            jumpHeight += 30;
-            Debug.Log("JumpActivated");
-        }
-    }
-    
 }

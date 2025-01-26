@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
     public float timer;
     public float timeLimit;
     public TMP_Text timerText;
+
+    public int collectables;
+    public TextMeshProUGUI collectableText;
     
     // Start is called before the first frame update
     void Start()
@@ -20,6 +23,8 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         timerText.text = timer.ToString("F2");
+
+        collectableText.text = "Coins:" + collectables.ToString();
         
 
         if (timer <= 0) {
