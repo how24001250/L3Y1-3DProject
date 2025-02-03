@@ -38,6 +38,10 @@ public class CarController : MonoBehaviour
     private GameObject particleHolder;
 
 
+    [Header("Package")]
+    public bool hasPackage = true;
+
+
     void Start()
     {
         theRB = gameObject.GetComponentInChildren<Rigidbody>(); //grabs the Rigidbody in the Sphere that is a child of the main gameObject.

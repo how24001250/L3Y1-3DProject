@@ -2271,7 +2271,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Package due in 3 minutes
+  m_text: Package due in 2 minutes
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 829ffd30fc5197d4290263e344959775, type: 2}
   m_sharedMaterial: {fileID: 7269887949425018760, guid: 829ffd30fc5197d4290263e344959775,
