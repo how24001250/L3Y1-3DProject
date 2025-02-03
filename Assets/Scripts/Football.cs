@@ -12,6 +12,9 @@ public class Football : MonoBehaviour
     public int homeGoals = 0;
     public int awayGoals = 0;
 
+    public TextMeshProUGUI homeScore;
+    public TextMeshProUGUI awayScore;
+
     public Vector3 center = new Vector3(59.78f, 0.64f, 4.4f);
 
     private Rigidbody rb;
@@ -43,6 +46,9 @@ public class Football : MonoBehaviour
     private void Update()
     {
         scoreBoard.text = homeGoals + ":" + awayGoals;
+
+        homeScore.text = homeGoals.ToString();
+        awayScore.text = awayGoals.ToString();
     }
 
     void ResetPositionAndStop()
