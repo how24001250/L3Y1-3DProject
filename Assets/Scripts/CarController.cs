@@ -19,6 +19,8 @@ public class CarController : MonoBehaviour
     [Range(0,5f)] public float dragOnGround = 3f;
     [SerializeField] float speedInput, turnInput;
 
+    public bool isBoosted = false;
+
     [Header("Ground Check")]
     public LayerMask whatisGround;
     private bool grounded;
@@ -40,6 +42,7 @@ public class CarController : MonoBehaviour
 
     [Header("Package")]
     public bool hasPackage = true;
+    public TextMeshProUGUI hasPackageText;
 
 
     void Start()
@@ -84,6 +87,8 @@ public class CarController : MonoBehaviour
         leftFrontWheel.localRotation = Quaternion.Euler(leftFrontWheel.localRotation.eulerAngles.x, (turnInput * maxWheelTurn) - 180, leftFrontWheel.localRotation.eulerAngles.z);
         rightFrontWheel.localRotation = Quaternion.Euler(rightFrontWheel.localRotation.eulerAngles.x, turnInput * maxWheelTurn, rightFrontWheel.localRotation.eulerAngles.z);
         transform.position = theRB.transform.position;
+
+        hasPackageText.text = "Have a Package?: " + hasPackage.ToString();
         
     }
 
@@ -129,4 +134,5 @@ public class CarController : MonoBehaviour
         }
 
     }
+
 }

@@ -17,13 +17,14 @@ public class GameManager : MonoBehaviour
 
     [Header("Packages")]
     public TextMeshProUGUI packagesText;
-    public int packagesDelivered = 0;
+    public static int packagesDelivered = 0;
     public int amountOfDropOffs = 6;
     
     // Start is called before the first frame update
     void Start()
     {
         timer = timeLimit;
+        packagesDelivered = 0;
     }
 
     // Update is called once per frame
@@ -36,8 +37,7 @@ public class GameManager : MonoBehaviour
         
 
         if (timer <= 0) {
-            Debug.Log("DNF");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene(3);
         }
         else{
             timer -= Time.deltaTime;

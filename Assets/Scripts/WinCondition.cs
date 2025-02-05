@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class WinCondition : MonoBehaviour
 {
     public int packagesDelivered;
     public TextMeshProUGUI packagesText;
+
+
     private void Start() {
-        packagesDelivered = GameObject.Find("GameManager").GetComponent<GameManager>().packagesDelivered;
+        packagesDelivered = GameManager.packagesDelivered;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -18,8 +21,10 @@ public class WinCondition : MonoBehaviour
 
         if(GameObject.Find("Car").GetComponent<CarController>().hasPackage == true) {
             Debug.Log("Delivered!");
-            GameObject.Find("GameManager").GetComponent<GameManager>().packagesDelivered++;
+            GameManager.packagesDelivered++;
             GameObject.Find("Car").GetComponent<CarController>().hasPackage = false;
+            GameObject.Find("GameManager").GetComponent<DeliverySpawner>().SpawnDelivery();
+
             Destroy(gameObject);
         }
         
