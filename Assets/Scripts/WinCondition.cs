@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class WinCondition : MonoBehaviour
 {
     public int packagesDelivered;
-    public TextMeshProUGUI packagesText;
 
 
     private void Start() {
@@ -17,11 +16,11 @@ public class WinCondition : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Collision Detected");
-
         if(GameObject.Find("Car").GetComponent<CarController>().hasPackage == true) {
             Debug.Log("Delivered!");
+
             GameManager.packagesDelivered++;
+
             GameObject.Find("Car").GetComponent<CarController>().hasPackage = false;
             GameObject.Find("GameManager").GetComponent<DeliverySpawner>().SpawnDelivery();
 

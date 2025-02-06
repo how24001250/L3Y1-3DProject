@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     [Header("Collectables")]
     public int collectables;
     public TextMeshProUGUI collectableText;
+    public TextMeshProUGUI collectableTextPause;
 
     [Header("Packages")]
     public TextMeshProUGUI packagesText;
@@ -34,6 +35,8 @@ public class GameManager : MonoBehaviour
         packagesText.text = packagesDelivered.ToString();
 
         collectableText.text = collectables.ToString();
+        collectableTextPause.text = collectables.ToString();
+
         
 
         if (timer <= 0) {
@@ -46,5 +49,14 @@ public class GameManager : MonoBehaviour
         if(packagesDelivered == amountOfDropOffs) {
             SceneManager.LoadScene(3);
         }
+    }
+
+    public void SubtractCoin() {
+        collectables = collectables - 1;
+    }
+
+    public void TimePurchased() 
+    {
+        timer = timer + 30;
     }
 }

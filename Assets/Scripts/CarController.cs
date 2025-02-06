@@ -143,4 +143,8 @@ public class CarController : MonoBehaviour
 
     }
 
+    public void SpeedBoostPurchased() 
+    {
+        forwardAccel = forwardAccel + 0.5f;
+    }
 }
