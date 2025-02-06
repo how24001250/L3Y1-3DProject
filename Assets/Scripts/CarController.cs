@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering;
+using UnityEngine.UI;
 
 public class CarController : MonoBehaviour
 {
@@ -42,8 +43,7 @@ public class CarController : MonoBehaviour
 
     [Header("Package")]
     public bool hasPackage = true;
-    public TextMeshProUGUI hasPackageText;
-
+    public GameObject packageIndicator;
 
     void Start()
     {
@@ -66,6 +66,7 @@ public class CarController : MonoBehaviour
         if (Input.GetAxis("Vertical") > 0) 
         {
             speedInput = Input.GetAxis("Vertical") * forwardAccel * 1000f;
+
         }
         else if (Input.GetAxis("Vertical") < 0) 
         {
@@ -88,8 +89,15 @@ public class CarController : MonoBehaviour
         rightFrontWheel.localRotation = Quaternion.Euler(rightFrontWheel.localRotation.eulerAngles.x, turnInput * maxWheelTurn, rightFrontWheel.localRotation.eulerAngles.z);
         transform.position = theRB.transform.position;
 
-        hasPackageText.text = "Have a Package?: " + hasPackage.ToString();
-        
+        if (hasPackage == true)
+        {
+            packageIndicator.gameObject.SetActive(true);
+        }
+        if (hasPackage == false)
+        {
+            packageIndicator.gameObject.SetActive(false);
+        }
+
     }
 
     private void FixedUpdate()

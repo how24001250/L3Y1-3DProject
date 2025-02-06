@@ -30,10 +30,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timerText.text = "Time Remaining: " + timer.ToString("F0");
-        packagesText.text = "Packages Delivered: " +packagesDelivered.ToString();
+        timerText.text = timer.ToString("F0");
+        packagesText.text = packagesDelivered.ToString();
 
-        collectableText.text = "Coins: " + collectables.ToString();
+        collectableText.text = collectables.ToString();
         
 
         if (timer <= 0) {
